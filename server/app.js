@@ -19,7 +19,7 @@ app.use(morgan('dev'));
 app.use(parser.json());
 
 // Set up our routes
-app.use("/classes", router);
+app.use("/", router);
 
 // Serve the client files
 app.use(express.static(__dirname + "/../client"));
@@ -30,3 +30,7 @@ if (!module.parent) {
   console.log("Listening on", app.get("port"));
 }
 
+// ///////////////////////////
+// app.get('/classes/chatterbox',function(req,res){
+//   res.send(JSON.stringify(messages));
+// });
