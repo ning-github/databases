@@ -90,3 +90,7 @@ form input[type=text] {
 .bolded {
     font-weight: bold;
 }
+
+p {
+    padding-top:15px;
+}

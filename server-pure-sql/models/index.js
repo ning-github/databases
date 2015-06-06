@@ -12,7 +12,7 @@ module.exports = {
     }, // a function which produces all the messages
     post: function (dataFromController) {
       console.log("from the model: ", dataFromController);
-      var queryString = "INSERT INTO messages (username, message, roomname) VALUES ('"+dataFromController.username+"', '" + dataFromController.message +"', '"+ dataFromController.roomname +"');";
+      var queryString = "INSERT INTO messages (username, message, roomname) VALUES ('spiderman', '" + dataFromController.message +"', '"+ dataFromController.roomname +"');";
       db.query(queryString,
         function (err, success, fields){
           console.log("error: ", err);

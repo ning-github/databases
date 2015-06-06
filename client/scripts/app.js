@@ -38,7 +38,7 @@ var MessageView = Backbone.View.extend({
 
   template: _.template(['<li class="well">',
         '<div class="username"><%-username%></div>',
-        '<div class="msgText"><%-text%></div>',
+        '<div class="msgText"><%-message%></div>',
         '<div><%-roomname%></div>',
       '</li>',].join('')),
 
@@ -79,17 +79,19 @@ var SubmitView = Backbone.View.extend({
 
   doSubmit: function(e){
     e.preventDefault();
-
+    var $username = this.$('#username');
     var $text = this.$('#message');
     var $roomname = this.$('#roomname');
     var data = {
-      username: window.location.search.substr(10),
-      text: $text.val(),
+      username: $username.val(),
+      message: $text.val(),
       roomname: $roomname.val()
     };
     this.collection.create(data);
+    $username.val('');
     $text.val('');
     $roomname.val('');
+    this.collection.loadMessages();
   },
 
 });
