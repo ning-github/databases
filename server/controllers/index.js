@@ -8,7 +8,7 @@ module.exports = {
       console.log("get request message");
       // should send a response to the Messages collection
       // -- this response should be what models module got from db
-      res.send(JSON.stringify({results: [{username: "blink", text: "test", roomname:"asdf"}]}));
+      res.send(JSON.stringify({results: [{username: "blink", text: "test", roomname:"asdf"}, {username: "blink", text: "test", roomname:"asdf"}, {username: "blink", text: "test", roomname:"asdf"}]}));
     }, // a function which handles a get request for all messages
     post: function (req, res) {
       console.log("post request message");
