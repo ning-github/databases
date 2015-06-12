@@ -14,3 +14,9 @@ connection.connect();
 
 module.exports = connection;
 
+/*
+
+schema --> db connection -->  |  server (app.js)  |  --> client                    
+                          --> model --> controller --> 
+*/
+
