@@ -1,10 +1,7 @@
-// /////////////////////////////////////////
-// BACKBONE.JS IMPLEMENTATION
-// /////////////////////////////////////////
 var Message = Backbone.Model.extend({
   url: 'http://127.0.0.1:3000/messages',
   defaults: {
-    username: ''
+    username: 'Guest'
   }
 });
 
@@ -21,14 +18,9 @@ var Messages = Backbone.Collection.extend({
 
   parse: function (response, options) {
     var output = [];
-
-    // for (var i = response.results.length-1; i>=0; i--) {
-    //   output.push(response.results[i]);
-    // }
     for (var i = 0; i < response.results.length; i++) {
       output.push(response.results[i]);
-    };
-
+    }
     return output;
   }
 });
@@ -55,19 +47,15 @@ var MessagesView = Backbone.View.extend({
   },
 
   render: function () {
-    // clears the feed (we can do this without flashing since line 47 syncs)
-    this.$el.html('');
+    // clears the feed (we can do this without flashing because
+    //    the .on('sync') is asynchronous  
     // render
     this.collection.forEach(this.renderMessage, this);
   },
 
   renderMessage: function(item){
-    // if it's not currently on screen
-    // if (!this.onScreenMessages[item.get('objectId')]){
-    //   this.onScreenMessages[item.get('objectId')] = true;
       var newMessageView = new MessageView({model:item});
       this.$el.prepend(newMessageView.render());
-    // }
   }
 });
 
