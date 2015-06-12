@@ -14,7 +14,13 @@ module.exports = {
       });                         
     }, 
     // insert a message into the database (INSERT)
-    post: function () {} 
+    post: function (params, callback) {
+      var queryString = 'insert into messages(text, userid, roomname) \
+                         value (?, select id from users where username = ? limit 1), ?)';
+      db.query(queryString, params, function(err, results){
+        callback(err, results);
+      });
+    } 
   },
 
   users: {
