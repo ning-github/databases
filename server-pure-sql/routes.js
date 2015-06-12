@@ -9,3 +9,10 @@ for (var route in controllers) {
 
 module.exports = router;
 
+/* router is a function:
+
+  function router(req, res, next) {
+    router.handle(req, res, next);
+  }
+
+*/
