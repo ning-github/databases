@@ -2,8 +2,19 @@ var db = require('../db');
 
 module.exports = {
   messages: {
-    get: function () {}, // a function which produces all the messages
-    post: function () {} // a function which can be used to insert a message into the database
+    // a function which produces all the messages (SELECT)
+    get: function (callback) {
+      // using a left outer join since the user posting
+      //   the message may not yet exist
+      var queryString = 'select messages.id, messages.text, messages.roomname, users.username \
+                         from messages left outer join users on (messages.userid = users.id) \
+                         order by messages.id desc';  
+      db.query(queryString, function(err, results){
+        callback(err, results);
+      });                         
+    }, 
+    // insert a message into the database (INSERT)
+    post: function () {} 
   },
 
   users: {
