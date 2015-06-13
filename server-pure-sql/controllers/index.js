@@ -5,8 +5,20 @@ var bluebird = require('bluebird');
 
 module.exports = {
   messages: {
-    get: function (req, res) {}, // a function which handles a get request for all messages
-    post: function (req, res) {} // a function which handles posting a message to the database
+    get: function (req, res) {
+      models.messages.get(function(err, results){
+        // res.json is identical to res.send
+        //   except that it converts its argument to JSON
+        res.json(results);
+      });
+    }, 
+    post: function (req, res) {
+      // create a params array to pass on to the model
+      var params = [req.body.message, req.body.username, req.body.roomname];
+      models.messages.post(params, function(err, result){
+        res.sendStatus(201);  // 201 is 'Created' status code
+      });   
+    } 
   },
 
   users: {
