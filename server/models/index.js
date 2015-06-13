@@ -1,18 +1,20 @@
-var db = require('../db');
+// with Sequelize ORM refactor, no longer need a separate models
+
+// var db = require('../db');
 
 
 
 
-module.exports = {
-  messages: {
-    get: function () {}, // a function which produces all the messages
-    post: function () {} // a function which can be used to insert a message into the database
-  },
+// module.exports = {
+//   messages: {
+//     get: function () {}, // a function which produces all the messages
+//     post: function () {} // a function which can be used to insert a message into the database
+//   },
 
-  users: {
-    // Ditto as above.
-    get: function () {},
-    post: function () {}
-  }
-};
+//   users: {
+//     // Ditto as above.
+//     get: function () {},
+//     post: function () {}
+//   }
+// };
 
