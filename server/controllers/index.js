@@ -14,7 +14,7 @@ module.exports = {
     }, 
     post: function (req, res) {
       // find or create the message's user (that info is needed for making a message)
-      db.User.findOrCreate(where:{username:req.body.username});
+      db.User.findOrCreate(where: {username: req.body.username});
         .complete(function(err,results){
           // use the found or created username (results) to create a message
           db.Message.create({ 
@@ -30,9 +30,17 @@ module.exports = {
   },
 
   users: {
-    // Ditto as above
-    get: function (req, res) {},
-    post: function (req, res) {}
+    get: function (req, res) {
+      db.findAll().complete(function(err, results){
+        res.json(results);
+      });
+    },
+    post: function (req, res) {
+      db.create({username: req.body.username})
+        .complete(function(err, results){
+          res.sendStatus(201);
+        });
+    }
   }
 };
 
