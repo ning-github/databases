@@ -19,11 +19,7 @@ app.use(morgan('dev'));
 app.use(parser.json());
 
 // Set up our routes
-<<<<<<< HEAD
-app.use("/", router);
-=======
 app.use('/', router);
->>>>>>> orm
 
 // Serve the client files
 app.use(express.static(__dirname + '/../client'));

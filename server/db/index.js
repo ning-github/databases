@@ -7,18 +7,6 @@ var Message = orm.define('Message', {
   text: Sequelize.STRING
 });
 
-<<<<<<< HEAD
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password:'',
-  database:'chat'
-});
-
-connection.connect();
-
-module.exports = connection;
-=======
 var User = orm.define('User', {
   username: Sequelize.STRING
 });
@@ -33,4 +21,3 @@ Message.sync();
 
 exports.User = User;
 exports.Message = Message;
->>>>>>> orm

@@ -12,34 +12,13 @@ var app = express();
 module.exports.app = app;
 
 // Set what we are listening on.
-<<<<<<< HEAD
-app.set("port", 3000);
-=======
 app.set('port', 3000);
->>>>>>> orm
 
 // Logging and parsing
 app.use(morgan('dev'));
 app.use(parser.json());
 
 // Set up our routes
-<<<<<<< HEAD
-app.use("/", router);
-
-// Serve the client files
-app.use(express.static(__dirname + "/../client"));
-
-// If we are being run directly, run the server.
-if (!module.parent) {
-  app.listen(app.get("port"));
-  console.log("Listening on", app.get("port"));
-}
-
-// ///////////////////////////
-// app.get('/classes/chatterbox',function(req,res){
-//   res.send(JSON.stringify(messages));
-// });
-=======
 app.use('/', router);
 
 // Serve the client files
@@ -50,5 +29,3 @@ if (!module.parent) {
   app.listen(app.get('port'));
   console.log('Listening on', app.get('port'));
 }
-
->>>>>>> orm
