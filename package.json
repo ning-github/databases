@@ -9,9 +9,16 @@
     "express": "^4.12.4",
     "lodash": "^2.4.1",
     "mocha": "^1.21.4",
+<<<<<<< HEAD
     "morgan": "^1.5.3",
     "mysql": "^2.7.0",
     "request": "^2.57.0"
+=======
+    "morgan": "^1.4.1",
+    "mysql": "^2.4.2",
+    "request": "^2.40.0",
+    "sequelize": "latest"
+>>>>>>> orm
   },
   "scripts": {
     "test": "node ./server/app.js & mocha server/spec/server-spec.js; RES=$?; kill %1; exit $RES"
